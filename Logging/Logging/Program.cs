@@ -1,26 +1,32 @@
+using Serilog;
+
 namespace Logging {
 	public class Program {
 		public static void Main(string[] args) {
-			var builder = WebApplication.CreateBuilder(args);
+			Log.Logger = new LoggerConfiguration()
+								.WriteTo.File("log.txt")
+								//.WriteTo.Console()
+								.CreateLogger();
 
-			builder.Host.ConfigureLogging(logging => {
-				logging.ClearProviders();
-				logging.AddConsole();
-				logging.AddDebug();
-				logging.AddEventLog();
-			});
+			try {
+				Log.Warning("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
-			builder.Services.AddHttpLogging(options => {
-				options.LoggingFields = Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.RequestProperties | Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.ResponsePropertiesAndHeaders;
-			});
+				var builder = WebApplication.CreateBuilder(args);
 
-			var app = builder.Build();
+				builder.Host.UseSerilog(); // <-- Add this line
 
-			app.UseHttpLogging();
+				var app = builder.Build();
 
-			app.MapGet("/", () => "Hello World!");
+				app.MapGet("/", () => "Hello World!");
 
-			app.Run();
+				app.Run();
+			}
+			catch (Exception ex) {
+				Log.Fatal(ex, "Application terminated unexpectedly");
+			}
+			finally {
+				Log.CloseAndFlush();
+			}
 		}
 	}
 }

@@ -1,0 +1,60 @@
+2023-03-03 15:40:03.983 +05:30 [ERR] Starting web application
+2023-03-03 15:40:04.390 +05:30 [INF] Now listening on: https://localhost:7247
+2023-03-03 15:40:04.392 +05:30 [INF] Now listening on: http://localhost:5005
+2023-03-03 15:40:04.393 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-03 15:40:04.393 +05:30 [INF] Hosting environment: Development
+2023-03-03 15:40:04.394 +05:30 [INF] Content root path: D:\aspnetcore\Logging\Logging
+2023-03-03 15:40:05.004 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7247/ - -
+2023-03-03 15:40:05.062 +05:30 [INF] Executing endpoint 'HTTP: GET /'
+2023-03-03 15:40:05.071 +05:30 [INF] Executed endpoint 'HTTP: GET /'
+2023-03-03 15:40:05.073 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7247/ - - - 200 - text/plain;+charset=utf-8 70.0716ms
+2023-03-03 15:40:57.072 +05:30 [ERR] Starting web application
+2023-03-03 15:40:57.401 +05:30 [INF] Now listening on: https://localhost:7247
+2023-03-03 15:40:57.402 +05:30 [INF] Now listening on: http://localhost:5005
+2023-03-03 15:40:57.403 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-03 15:40:57.403 +05:30 [INF] Hosting environment: Development
+2023-03-03 15:40:57.403 +05:30 [INF] Content root path: D:\aspnetcore\Logging\Logging
+2023-03-03 15:40:57.899 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7247/ - -
+2023-03-03 15:40:57.973 +05:30 [INF] Executing endpoint 'HTTP: GET /'
+2023-03-03 15:40:57.982 +05:30 [INF] Executed endpoint 'HTTP: GET /'
+2023-03-03 15:40:57.984 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7247/ - - - 200 - text/plain;+charset=utf-8 87.2432ms
+2023-03-03 15:41:24.883 +05:30 [INF] Starting web application
+2023-03-03 15:41:25.215 +05:30 [INF] Now listening on: https://localhost:7247
+2023-03-03 15:41:25.216 +05:30 [INF] Now listening on: http://localhost:5005
+2023-03-03 15:41:25.217 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-03 15:41:25.217 +05:30 [INF] Hosting environment: Development
+2023-03-03 15:41:25.217 +05:30 [INF] Content root path: D:\aspnetcore\Logging\Logging
+2023-03-03 15:41:25.636 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7247/ - -
+2023-03-03 15:41:25.706 +05:30 [INF] Executing endpoint 'HTTP: GET /'
+2023-03-03 15:41:25.714 +05:30 [INF] Executed endpoint 'HTTP: GET /'
+2023-03-03 15:41:25.716 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7247/ - - - 200 - text/plain;+charset=utf-8 81.3219ms
+2023-03-03 15:41:58.614 +05:30 [WRN] ************************************************************************************************************
+2023-03-03 15:41:58.923 +05:30 [INF] Now listening on: https://localhost:7247
+2023-03-03 15:41:58.924 +05:30 [INF] Now listening on: http://localhost:5005
+2023-03-03 15:41:58.925 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-03 15:41:58.925 +05:30 [INF] Hosting environment: Development
+2023-03-03 15:41:58.925 +05:30 [INF] Content root path: D:\aspnetcore\Logging\Logging
+2023-03-03 15:41:59.253 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7247/ - -
+2023-03-03 15:41:59.322 +05:30 [INF] Executing endpoint 'HTTP: GET /'
+2023-03-03 15:41:59.331 +05:30 [INF] Executed endpoint 'HTTP: GET /'
+2023-03-03 15:41:59.332 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7247/ - - - 200 - text/plain;+charset=utf-8 80.6553ms
+2023-03-03 15:43:12.034 +05:30 [WRN] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2023-03-03 15:43:12.371 +05:30 [INF] Now listening on: https://localhost:7247
+2023-03-03 15:43:12.373 +05:30 [INF] Now listening on: http://localhost:5005
+2023-03-03 15:43:12.374 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-03 15:43:12.374 +05:30 [INF] Hosting environment: Development
+2023-03-03 15:43:12.374 +05:30 [INF] Content root path: D:\aspnetcore\Logging\Logging
+2023-03-03 15:43:12.748 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7247/ - -
+2023-03-03 15:43:12.819 +05:30 [INF] Executing endpoint 'HTTP: GET /'
+2023-03-03 15:43:12.834 +05:30 [INF] Executed endpoint 'HTTP: GET /'
+2023-03-03 15:43:12.836 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7247/ - - - 200 - text/plain;+charset=utf-8 89.0983ms
+2023-03-03 15:59:35.878 +05:30 [WRN] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+2023-03-03 15:59:36.174 +05:30 [INF] Now listening on: https://localhost:7247
+2023-03-03 15:59:36.176 +05:30 [INF] Now listening on: http://localhost:5005
+2023-03-03 15:59:36.177 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2023-03-03 15:59:36.177 +05:30 [INF] Hosting environment: Development
+2023-03-03 15:59:36.177 +05:30 [INF] Content root path: D:\aspnetcore\Logging\Logging
+2023-03-03 15:59:36.481 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7247/ - -
+2023-03-03 15:59:36.555 +05:30 [INF] Executing endpoint 'HTTP: GET /'
+2023-03-03 15:59:36.568 +05:30 [INF] Executed endpoint 'HTTP: GET /'
+2023-03-03 15:59:36.569 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7247/ - - - 200 - text/plain;+charset=utf-8 89.7839ms

@@ -1,0 +1,6 @@
+{
+  "ClientAPI": {
+    "ClientID": "This is Child Key 1: MyOwnConfig",
+    "ClientName": "This is Child Key 2: MyOwnConfig"
+  }
+}
