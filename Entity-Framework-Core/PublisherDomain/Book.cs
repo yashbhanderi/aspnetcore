@@ -5,6 +5,9 @@
 		public DateTime PublishDate { get; set; }
 		public decimal BasePrice { get; set; }
 		public Author Author { get; set; }
-		public int AuthorId { get; set; }
+
+		public override string ToString() {
+			return $"{BookId}, {Title}, {PublishDate}, {BasePrice}, {Author}";
+		}
 	}
 }

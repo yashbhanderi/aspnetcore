@@ -8,8 +8,9 @@ namespace PublisherData {
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 			optionsBuilder.UseSqlServer(
-			  "Data Source=DESKTOP-K63766J;Initial Catalog=PublisherDatabase;Integrated Security=True"
-			);
+			  "Data Source=DESKTOP-K63766J;Initial Catalog=PublisherDatabase;Integrated Security=True;TrustServerCertificate=True"
+			)
+			//.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 		}
 
 	}
