@@ -1,9 +1,9 @@
-﻿using PublisherData;
-
+﻿using Microsoft.EntityFrameworkCore;
+using PublisherData;
 
 namespace PublisherConsole {
 	public class Program {
-		public static readonly PublisherContext context = new();
+		public static readonly PublisherContext _context = new();
 
 		public static void Execute() {
 
@@ -44,13 +44,66 @@ namespace PublisherConsole {
 
 			//Console.WriteLine("After Update\n" + context.ChangeTracker.DebugView.LongView);
 
+
+			// ::: Many to Many Relationship :::
+
+
+			//? 1) New Artist with New Cover
+
+			//var artist = new Artist { FirstName = "Ravindra", LastName = "Jadeja" };
+			//var cover = new Cover { CoverName = "cover4", IsLatest = false };
+
+			//artist.Covers.Add(cover);
+
+			//_context.Artists.Add(artist);
+
+			//? 2) New Cover with Existing Artist
+
+			//var artist = _context.Artists.Where(a => a.LastName.Contains("Sharma")).FirstOrDefault();
+			//var cover = new Cover { CoverName = "cover5", IsLatest = true };
+
+			//if (artist != null)
+			//	artist.Covers.Add(cover);
+
+
+			//? 3) Existing Artist and Existing Cover
+
+			//var artist = _context.Artists.Find(102);
+			//var cover1 = _context.Covers.Find(203);
+			//var cover2 = _context.Covers.Find(201);
+			//var cover3 = _context.Covers.Find(202);
+
+			//artist?.Covers.AddRange(new List<Cover> { cover1, cover2, cover3 });
+
+
+			//? 4) Retrive all artists who have covers
+
+			var artists = _context.Artists.Where(a => a.Covers.Any()).Include(a => a.Covers).ToList();  //! Any Returns True If object has any given elements i.e. a.Covers.Length > 0
+
+			foreach (var artist in artists) {
+				Console.WriteLine(artist + "\n Covers:-\n");
+
+				foreach (var c in artist.Covers) {
+					Console.WriteLine(c);
+				}
+
+				Console.WriteLine();
+			}
+
+			//_context.SaveChanges();
+
 		}
 
 		public static void Main() {
 
 			Console.WriteLine("Start of the program");
 
-			Execute();
+			try {
+				Execute();
+			}
+			catch (Exception ex) {
+				Console.WriteLine("ERRRROOOORRR!!!");
+			}
 
 		}
 	}
