@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PublisherData;
+﻿using PublisherData;
 
 namespace PublisherConsole {
 	public class Program {
@@ -7,103 +6,65 @@ namespace PublisherConsole {
 
 		public static void Execute() {
 
-			// ::: Retrive the Data || Convert into List of C# Objects 
-			//var authors = context.Authors.ToList();
 
-			// ::: Only get data which has books property
-			//var authors = context.Authors.Include(a => a.Books).ToList();
+			//TODO ::: One to One relationship
 
-			// ::: Filtering
-			//var authors = context.Authors.Where(a => a.FirstName.Contains("m") && a.LastName.Contains("m")).ToList();
+			//! In EF Core, ONE-TO-ONE can implement in ---> 2 WAYS <----
 
-			// ::: Sorting
-			//var authors = context.Authors
-			//				.OrderBy(a => a.LastName)
-			//				//.OrderBy(a => a.FirstName)	<---- Don't USE THIS !!!
-			//				.ThenBy(a => a.FirstName)
-			//				.ToList();
+			//! 1) SHARED PRIMARY KEY ASSN,
+			//! The dependent table shares the same primary key as the principal table. This
+			//?			In this scenario, you cannot insert a row into the dependent table without first inserting a row into the principal table
 
-			//foreach (var a in authors) {
-			//	Console.WriteLine(a.ToString());
-			//}
-
-			// ::: Tracking changes and ChangeTracker Object
+			//! 2) FOREIGN KEY 
+			//! The dependent table has a foreign key that references the primary key of the principal table.
+			//?          In this scenario, you can insert a row into the dependent table without first inserting a row into the principal table ( But Primary Key to create FK should be exist in Principle Table)
 
 
-			//var authors = context.Authors.Where(a => a.FirstName.StartsWith("m")).ToList();
 
-			//foreach (var a in authors) {
-			//	a.LastName += " Updated";
-			//}
+			//! In a one - to - one relationship, the principal table can exist without the dependent table,
+			//! but the dependent table cannot exist without the principal table.
 
-			//Console.WriteLine("Before Update\n" + context.ChangeTracker.DebugView.LongView);
+			//TODO 1) Fetch the Country and Capital List
+			//var cty = _context.Countries.Include(c => c.Capital).ToList();
 
-			//// Internally Calls SaveChanges()
-			//context.ChangeTracker.DetectChanges();	
-
-
-			//Console.WriteLine("After Update\n" + context.ChangeTracker.DebugView.LongView);
+			//TODO 2) Fetch the Countries which have capitals
+			//var cty = _context.Countries.Where(c => c.Capital.CountryId == c.CountryId).Include(c => c.Capital).ToList();
 
 
-			// ::: Many to Many Relationship :::
-
-
-			//? 1) New Artist with New Cover
-
-			//var artist = new Artist { FirstName = "Ravindra", LastName = "Jadeja" };
-			//var cover = new Cover { CoverName = "cover4", IsLatest = false };
-
-			//artist.Covers.Add(cover);
-
-			//_context.Artists.Add(artist);
-
-			//? 2) New Cover with Existing Artist
-
-			//var artist = _context.Artists.Where(a => a.LastName.Contains("Sharma")).FirstOrDefault();
-			//var cover = new Cover { CoverName = "cover5", IsLatest = true };
-
-			//if (artist != null)
-			//	artist.Covers.Add(cover);
-
-
-			//? 3) Existing Artist and Existing Cover
-
-			//var artist = _context.Artists.Find(102);
-			//var cover1 = _context.Covers.Find(203);
-			//var cover2 = _context.Covers.Find(201);
-			//var cover3 = _context.Covers.Find(202);
-
-			//artist?.Covers.AddRange(new List<Cover> { cover1, cover2, cover3 });
-
-
-			//? 4) Retrive all artists who have covers
-
-			var artists = _context.Artists.Where(a => a.Covers.Any()).Include(a => a.Covers).ToList();  //! Any Returns True If object has any given elements i.e. a.Covers.Length > 0
-
-			foreach (var artist in artists) {
-				Console.WriteLine(artist + "\n Covers:-\n");
-
-				foreach (var c in artist.Covers) {
-					Console.WriteLine(c);
-				}
-
-				Console.WriteLine();
-			}
-
+			//TODO 3) Add Capital to Existing Country
+			//var cty = _context.Countries.Where(c => c.CountryName == "England").FirstOrDefault();
+			//var capital = new Capital() { CapitalName = "London", CapitalCode = "LON", CountryId = cty.CountryId };
+			//cty.Capital = capital;
 			//_context.SaveChanges();
 
+			//TODO 4) Remove Capital From Country
+			//! JUST REMOVE ROW FROM CAPITAL -> BCZ Capital can't exist without country
+
+			//var country = _context.Countries.Where(c => c.CountryName == "England").Include(c => c.Capital).FirstOrDefault();
+
+			//if (country != null) {
+			//! TWO WAYS
+			//! 1)	_context.Capitals.Remove(country.Capital);
+			//! 2)	country.Capital = null;
+			//}
+
+			_context.SaveChanges();
+
+
+
+			//foreach (var country in _context.Countries.Select(c => new { cap = c.Capital }).ToList()) {
+			//	Console.WriteLine("Country: " + country);
+			//	Console.WriteLine("Capital: " + country.cap);
+			//	Console.WriteLine();
+			//}
 		}
+
 
 		public static void Main() {
 
 			Console.WriteLine("Start of the program");
 
-			try {
-				Execute();
-			}
-			catch (Exception ex) {
-				Console.WriteLine("ERRRROOOORRR!!!");
-			}
+			Execute();
 
 		}
 	}

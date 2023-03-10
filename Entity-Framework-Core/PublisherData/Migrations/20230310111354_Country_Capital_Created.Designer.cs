@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PublisherData;
 
@@ -11,9 +12,10 @@ using PublisherData;
 namespace PublisherData.Migrations
 {
     [DbContext(typeof(PublisherContext))]
-    partial class PublisherContextModelSnapshot : ModelSnapshot
+    [Migration("20230310111354_Country_Capital_Created")]
+    partial class Country_Capital_Created
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -135,9 +137,8 @@ namespace PublisherData.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CapitalId"), 1L, 1);
 
-                    b.Property<string>("CapitalCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CapitalArea")
+                        .HasColumnType("int");
 
                     b.Property<string>("CapitalName")
                         .IsRequired()
@@ -157,21 +158,21 @@ namespace PublisherData.Migrations
                         new
                         {
                             CapitalId = 11,
-                            CapitalCode = "DL",
+                            CapitalArea = 200,
                             CapitalName = "Delhi",
                             CountryId = 1
                         },
                         new
                         {
                             CapitalId = 12,
-                            CapitalCode = "WSDC",
+                            CapitalArea = 200,
                             CapitalName = "Washington D.C.",
                             CountryId = 2
                         },
                         new
                         {
                             CapitalId = 13,
-                            CapitalCode = "MSC",
+                            CapitalArea = 200,
                             CapitalName = "Moscow",
                             CountryId = 3
                         });
